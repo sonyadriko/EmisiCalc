@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MenghitungEmisi</string>
+    <string name="reset">Reset</string>
+    <string name="stop">Stop</string>
+    <string name="start">Start</string>
+    <string name="masukkan_emisi">Masukkan Emisi</string>
+    <string name="emisi">Emisi</string>
+    <string name="masukkan_jarak_tempuh">Masukkan Jarak Tempuh</string>
+    <string name="jarak_tempuh">Jarak Tempuh</string>
+    <string name="masukkan_kecepatan">Masukkan Kecepatan</string>
+    <string name="kecepatan_rata_rata">Kecepatan Rata-rata</string>
+    <string name="masukkan_longitude">Masukkan Longitude</string>
+    <string name="bahan_bakar">Bahan Bakar</string>
+    <string name="cc_kendaraan">CC Kendaraan</string>
+    <string name="aplikasi_saya">Aplikasi Saya</string>
+    <string name="latitude">Latitude</string>
+    <string name="riwayat">Riwayat</string>
+    <string name="masukkan_latitude">Masukkan Latitude</string>
+    <string name="longitude">Longitude</string>
+</resources>

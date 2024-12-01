@@ -126,7 +126,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:maxLines="1"
-                        tools:text="0km/h" />
+                        android:text="0km/h" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView

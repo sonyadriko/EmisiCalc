@@ -18,8 +18,12 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import kotlin.math.*
 
 class MainActivity : AppCompatActivity(), SensorEventListener {
+
+    private var startLatitude: Double? = null
+    private var startLongitude: Double? = null
 
     private lateinit var sensorManager: SensorManager
     private var accelerometer: Sensor? = null
@@ -36,6 +40,36 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val btnStart: Button = findViewById(R.id.buttonStart)
+        val btnStop: Button = findViewById(R.id.btnStop)
+        val editTextLatitude: EditText = findViewById(R.id.editTextLatitude)
+        val editTextLongitude: EditText = findViewById(R.id.editTextLongitude)
+        val editTextJarak: EditText = findViewById(R.id.inputJarak)
+
+        btnStart.setOnClickListener {
+            // Simpan titik awal
+            startLatitude = editTextLatitude.text.toString().toDoubleOrNull()
+            startLongitude = editTextLongitude.text.toString().toDoubleOrNull()
+            if (startLatitude != null && startLongitude != null) {
+                Toast.makeText(this, "Titik awal disimpan!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Masukkan koordinat awal yang valid!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        btnStop.setOnClickListener {
+            val endLatitude = editTextLatitude.text.toString().toDoubleOrNull()
+            val endLongitude = editTextLongitude.text.toString().toDoubleOrNull()
+
+            if (startLatitude != null && startLongitude != null && endLatitude != null && endLongitude != null) {
+                val distance = haversine(startLatitude!!, startLongitude!!, endLatitude, endLongitude)
+                editTextJarak.setText(String.format("%.2f km", distance))
+                Toast.makeText(this, "Jarak dihitung: $distance km", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Masukkan koordinat akhir yang valid!", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         val spinnerCcKendaraan: Spinner = findViewById(R.id.spinnerCcKendaraan)
         val spinnerBahanBakar: Spinner = findViewById(R.id.spinnerBahanBakar)
@@ -157,5 +191,17 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
 
+    }
+
+
+    fun haversine(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
+        val R = 6371 // Radius bumi dalam kilometer
+        val dLat = Math.toRadians(lat2 - lat1)
+        val dLon = Math.toRadians(lon2 - lon1)
+        val a = sin(dLat / 2) * sin(dLat / 2) +
+                cos(Math.toRadians(lat1)) * cos(Math.toRadians(lat2)) *
+                sin(dLon / 2) * sin(dLon / 2)
+        val c = 2 * atan2(sqrt(a), sqrt(1 - a))
+        return R * c
     }
 }

@@ -27,8 +27,11 @@ Proyek ini adalah aplikasi Android yang menghitung emisi karbon yang dihasilkan 
 ---
 
 ## 📸 **Tangkapan Layar Aplikasi:**
+### **Home**
+![WhatsApp Image 2024-12-09 at 01 01 18_524e3067](https://github.com/user-attachments/assets/5044bc7a-35f5-450e-a2c1-2f807e8c5e93)
 
-*Tambahkan screenshot dari aplikasi di sini*
+### **Riwayat**
+![WhatsApp Image 2024-12-09 at 01 23 23_8c80efc3](https://github.com/user-attachments/assets/f09d96ca-7496-4773-b199-d92651abbdf3)
 
 ---
 

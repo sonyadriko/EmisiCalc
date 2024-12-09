@@ -55,3 +55,21 @@ Proyek ini adalah aplikasi Android yang menghitung emisi karbon yang dihasilkan 
 
 2. **Buka di Android Studio: Buka proyek di Android Studio:**
 3. **Jalankan Aplikasi: Pilih perangkat Android atau emulator dan jalankan aplikasi**
+
+---
+
+## 📝 **Penjelasan Kode:**
+```bash
+Pengambilan Lokasi:
+    Menggunakan FusedLocationProviderClient untuk mendapatkan lokasi pengguna secara akurat dan efisien.
+    Lokasi pengguna diperbarui secara real-time melalui LocationCallback.
+Penghitungan Emisi:
+    Emisi dihitung menggunakan rumus:
+    Emisi = (1 / CC) * FuelValue * DistanceKm
+    Di mana:
+        CC: Kapasitas mesin kendaraan (misalnya, 50-110 CC).
+        FuelValue: Nilai emisi dari bahan bakar yang digunakan (Bensin atau Solar).
+        DistanceKm: Jarak yang ditempuh dalam kilometer.
+Riwayat Perjalanan:
+    Riwayat perjalanan disimpan menggunakan SharedPreferences dalam format JSON.
+    Data yang disimpan mencakup informasi seperti jenis kendaraan, jenis bahan bakar, kecepatan, jarak, dan emisi karbon.

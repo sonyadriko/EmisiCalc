@@ -105,21 +105,22 @@ class MainActivity : AppCompatActivity() {
                 totalDistance += distance
             }
 
+            binding.latitude.text = currentLocation.latitude.toString()
+            binding.longitude.text = currentLocation.longitude.toString()
+
             previousLocation = currentLocation
 
             binding.distance.text =
                 String.format(Locale.getDefault(), "%.2f", totalDistance/1000) + "km"
 
             // Calculate emission based on ccValue and fuelValue
-            if (ccValue > 0) { // Avoid division by zero
-                val emission = calculateEmission(ccValue, fuelValue, totalDistance / 1000)
-                binding.emission.text =
-                    String.format(Locale.getDefault(), "%.4f", emission)
-
-                // Save the result to local storage (everysecond)
-                // saveResultToLocalStorage(totalDistanceKm, emission)
-            } else {
-                binding.emission.text = "Invalid CC Value"
+            binding.emission.apply {
+                if (ccValue > 0) {
+                    val emission = calculateEmission(ccValue, fuelValue, totalDistance/1000)
+                    text = String.format(Locale.getDefault(), "%.4f", emission)
+                } else {
+                    text = "Invalid CC value"
+                }
             }
         }
     }

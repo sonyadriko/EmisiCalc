@@ -22,11 +22,10 @@
             android:id="@+id/ccValueText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CC Value"
+            android:text="CC"
             android:textSize="18sp"
             android:textColor="@android:color/black"
             android:fontFamily="sans-serif-medium"
-            android:textStyle="bold"
             android:paddingBottom="4dp" />
 
         <!-- Fuel Value -->
@@ -34,7 +33,7 @@
             android:id="@+id/fuelValueText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fuel Type"
+            android:text="Fuel"
             android:textSize="18sp"
             android:textColor="@android:color/black"
             android:fontFamily="sans-serif-medium"

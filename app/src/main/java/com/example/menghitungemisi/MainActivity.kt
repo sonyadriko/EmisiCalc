@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
     // Location services
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private val locationRequest: LocationRequest by lazy {
-        LocationRequest.Builder(300).apply {
-            setPriority(Priority.PRIORITY_HIGH_ACCURACY)
+        LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,300).apply {
+            setMinUpdateIntervalMillis(200)
         }.build()
     }
     private val locationCallback = object : LocationCallback() {

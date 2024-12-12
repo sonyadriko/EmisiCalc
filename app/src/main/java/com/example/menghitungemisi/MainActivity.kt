@@ -90,8 +90,10 @@ class MainActivity : AppCompatActivity() {
             binding.speed.text = "0km/h"
             binding.distance.text = "0km"
             binding.emission.text = "0CO2"
+            binding.spinnerBahanBakar.isEnabled = true
+            binding.spinnerCcKendaraan.isEnabled = true
+            Snackbar.make(findViewById(android.R.id.content), "Reset Successful!", Snackbar.LENGTH_SHORT).show()
         }
-
     }
 
     @SuppressLint("MissingPermission")
@@ -103,6 +105,8 @@ class MainActivity : AppCompatActivity() {
             binding.buttonReset.isEnabled = false
             binding.btnStop.isEnabled = true
             binding.buttonStart.isEnabled = false
+            binding.spinnerBahanBakar.isEnabled = false
+            binding.spinnerCcKendaraan.isEnabled = false
             Snackbar.make(findViewById(android.R.id.content), "Location tracking starts!", Snackbar.LENGTH_SHORT).show()
         }
     }
@@ -148,10 +152,10 @@ class MainActivity : AppCompatActivity() {
         val dataCcKendaraan = arrayOf("50-110 CC", "125-150 CC", "1000-1499 CC", "1500-2000 CC", ">2000 CC")
         val ccValues = mapOf(
             "50-110 CC" to 40,
-            "125-150 CC" to 50,
-            "1000-1499 CC" to 80,
-            "1500-2000 CC" to 100,
-            ">2000 CC" to 120
+            "125-150 CC" to 35,
+            "1000-1499 CC" to 15,
+            "1500-2000 CC" to 12,
+            ">2000 CC" to 9
         )
         val adapterCc = ArrayAdapter(this, android.R.layout.simple_spinner_item, dataCcKendaraan)
         adapterCc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -161,7 +165,7 @@ class MainActivity : AppCompatActivity() {
         val dataBahanBakar = arrayOf("Bensin", "Solar")
         val fuelValues = mapOf(
             "Bensin" to 2.31,
-            "Solar" to 1.8
+            "Solar" to 2.68
         )
         val adapterBahanBakar = ArrayAdapter(this, android.R.layout.simple_spinner_item, dataBahanBakar)
         adapterBahanBakar.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

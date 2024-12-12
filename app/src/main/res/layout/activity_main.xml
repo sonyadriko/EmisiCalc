@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
+    android:background="@color/background"
     tools:ignore="HardcodedText">
 
     <!-- Content Layout -->
@@ -23,10 +24,11 @@
                 android:id="@+id/btnRiwayat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/riwayat"
                 android:layout_gravity="end"
                 android:background="@null"
-                android:textColor="@android:color/white" />
+                android:backgroundTint="#8FBC8F"
+                android:text="@string/riwayat"
+                android:textColor="@color/white" />
 
             <!-- Dropdown for CC Kendaraan -->
             <TextView
@@ -34,13 +36,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/cc_kendaraan"
                 android:textSize="16sp"
+                android:textColor="@color/text_primary"
                 android:layout_marginBottom="8dp" />
 
 
             <Spinner
                 android:id="@+id/spinnerCcKendaraan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:padding="8dp"
                 android:background="@drawable/spinner_background" />
 
@@ -50,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/bahan_bakar"
                 android:textSize="16sp"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp" />
 
@@ -57,7 +61,7 @@
                 android:id="@+id/spinnerBahanBakar"
                 android:layout_width="match_parent"
                 android:padding="8dp"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:background="@drawable/spinner_background" />
 
             <LinearLayout
@@ -77,13 +81,15 @@
                     android:layout_marginEnd="8dp"
                     android:layout_weight="1"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="1dp">
+                    app:cardElevation="1dp"
+                    android:background="@color/card_background">
 
                     <TextView
                         style="@style/TextAppearance.Material3.LabelLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
+                        android:textColor="@color/text_secondary"
                         android:text="Latitude" />
 
                     <TextView
@@ -93,6 +99,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:maxLines="1"
+                        android:textColor="@color/text_primary"
                         android:text="0" />
                 </androidx.cardview.widget.CardView>
 
@@ -111,6 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
+                        android:textColor="@color/text_secondary"
                         android:text="Longitude" />
 
                     <TextView
@@ -120,6 +128,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:maxLines="1"
+                        android:textColor="@color/text_primary"
                         android:text="0" />
 
                 </androidx.cardview.widget.CardView>
@@ -150,6 +159,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
+                        android:textColor="@color/text_secondary"
                         android:text="Speed" />
 
                     <TextView
@@ -158,6 +168,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:textColor="@color/text_primary"
                         android:maxLines="1"
                         android:text="0km/h" />
                 </androidx.cardview.widget.CardView>
@@ -177,12 +188,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
+                        android:textColor="@color/text_secondary"
                         android:text="Distance" />
 
                     <TextView
                         android:id="@+id/distance"
                         style="@style/TextAppearance.Material3.HeadlineMedium"
                         android:layout_width="match_parent"
+                        android:textColor="@color/text_primary"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:maxLines="1"
@@ -206,6 +219,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:textColor="@color/text_secondary"
                     android:text="Emission" />
 
                 <TextView
@@ -214,6 +228,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:textColor="@color/text_primary"
                     android:maxLines="1"
                     android:text="0CO2" />
 
@@ -232,22 +247,23 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="#009688"
+                    android:backgroundTint="@color/button_start"
                     android:text="@string/start"
                     android:layout_marginEnd="8dp" />
 
                 <Button
                     android:id="@+id/btnStop"
                     android:layout_width="0dp"
-                    android:backgroundTint="#E91E63"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:backgroundTint="@color/button_stop"
                     android:text="@string/stop"
                     android:layout_marginEnd="8dp" />
 
                 <Button
                     android:id="@+id/buttonReset"
                     android:layout_width="0dp"
+                    android:backgroundTint="@color/button_reset"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/reset" />

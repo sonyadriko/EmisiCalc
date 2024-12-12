@@ -17,6 +17,9 @@ class RiwayatActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loadHistory()
+        binding.buttonBack.setOnClickListener{
+            finish()
+        }
     }
 
     // Load history data from SharedPreferences and display it in RecyclerView

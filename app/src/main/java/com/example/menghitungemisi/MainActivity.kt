@@ -71,13 +71,26 @@ class MainActivity : AppCompatActivity() {
 
         getLastLocation { getCurrentLocation() }
         setupView()
+        resetValue()
 
         binding.btnRiwayat.setOnClickListener{
             startActivity(Intent(this, RiwayatActivity::class.java))
         }
+        binding.btnStop.isEnabled = false
         // reset value sharedPreference
         // val sharedPreferences = getSharedPreferences("Riwayat", MODE_PRIVATE)
         // sharedPreferences.edit().remove("history").apply()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun resetValue() {
+        binding.buttonReset.setOnClickListener{
+            binding.latitude.text = "0"
+            binding.longitude.text = "0"
+            binding.speed.text = "0km/h"
+            binding.distance.text = "0km"
+            binding.emission.text = "0CO2"
+        }
 
     }
 
@@ -87,6 +100,10 @@ class MainActivity : AppCompatActivity() {
             fusedLocationClient.requestLocationUpdates(
                 locationRequest, locationCallback, Looper.getMainLooper()
             )
+            binding.buttonReset.isEnabled = false
+            binding.btnStop.isEnabled = true
+            binding.buttonStart.isEnabled = false
+            Snackbar.make(findViewById(android.R.id.content), "Location tracking starts!", Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -117,7 +134,7 @@ class MainActivity : AppCompatActivity() {
             binding.emission.apply {
                 if (ccValue > 0) {
                     val emission = calculateEmission(ccValue, fuelValue, totalDistance/1000)
-                    text = String.format(Locale.getDefault(), "%.4f", emission)
+                    text = String.format(Locale.getDefault(), "%.4f CO2", emission)
                 } else {
                     text = "Invalid CC value"
                 }
@@ -181,6 +198,9 @@ class MainActivity : AppCompatActivity() {
                                 )
                                 // Show a Snackbar notification for success
                                 Snackbar.make(findViewById(android.R.id.content), "Data saved successfully!", Snackbar.LENGTH_SHORT).show()
+                                binding.buttonStart.isEnabled = true
+                                binding.buttonReset.isEnabled = true
+                                binding.btnStop.isEnabled = false
                             } else {
                                 Log.e(
                                     "Location Stop",

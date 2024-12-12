@@ -215,7 +215,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:text="0km" />
+                    android:text="0CO2" />
 
             </androidx.cardview.widget.CardView>
 
